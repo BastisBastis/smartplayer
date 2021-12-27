@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>  
+    <title>S.M.Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Artistens instrument">
+    <meta name="keywords" content="">
+
+    
+	<link rel="stylesheet" href="css/styles.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="instructions"><i>För att starta filmen, klicka på "Ladda liten fil" eller "Ladda stor fil". Om du använder mobildata eller har långsam internetuppkoppling bör välja den lilla filen, annars den stora.</i>
+      <h2>Instruktioner:</h2>
+      <ul>
+        <li>Tryck på instrumentets namn för att ta bort instrumentet.</li>
+        <li>Tryck igen för att ta fram instrumentets bild och ljud igen.</li>
+      </ul>
+      <h2 style="display:none">Lärarinstruktioner:</h2>
+        <ul style="display:none">
+          <li>Se först filmen med eleverna och diskutera om eleverna känner igen något av instrumenten.</li>
+          <li>Se filmen igen, men tryck bort några instrument så att ni bara ser en instrumentfamilj i taget.
+            <ul>
+              <li>Brass: Trumpet, Trombon, Valthorn</li>
+              <li>Träblås: Saxofon, Tvärflöjt, Klarinett</li>
+              <li>Stråk: Fiol, Cello</li>
+              <li>Övrigt: Slagverk, Klockspel, Piano, Elbas</li>
+              <li>Diskutera vad instrumenten i varje familj har gemensamt.</li>
+            </ul>
+          <li>Se filmen igen men låt eleverna själva välja vilka instrument som ska vara med.</li>
+          
+        </ul>
+    </div>
+      
+    <!--<button id="start" class="bgClr1" onclick="v.start()" hidden>Start</button>-->
+    <!--<div id="startButtons" style="position:absolute; bottom:50%; width:100%; text-align:center;">-->
+    <div id="startButtons" style="width:100%; text-align:center;">
+      <button id="startLow" class="bgClr1" onclick="startLow()">Ladda liten fil</button>
+      <button id="startHigh" class="bgClr1" onclick="startHigh()">Ladda stor fil</button>
+    </div>
+      <div id="controls">
+        
+      </div>
+      <div style="float: right;">
+        <button id="pauseBtn" class="bgClr1" hidden>Paus</button>
+        <button id="toggleMenuBtn" class="bgClr1" hidden>&uarr;</button>
+    </div>
+    
+    <button id="restartButton" class="bgClr1" style="height:auto; position:absolute; bottom:50%; left:50%;" onclick="v.restart()" hidden>Se igen<br><span style="font-size:2em;">&#x21ba;</span></button>
+    
+    
+    <script src="./js/audio.js"></script>
+    <script src="./js/video.js"></script>
+
+
+    <script>
+        var v;
+        
+
+        function startHigh() {
+    		$("#startLow").hide();
+      		$("#startHigh").hide();
+          const folder = "starwars/";
+  		  const files = ["trb.mp3","vhn.mp3", "kla1.mp3", "slg.mp3","trp.mp3","sax.mp3","bas.mp3", "cel.mp3", "tru.mp3", "vln.mp3", "flj.mp3", "pia.mp3"];
+      	  const partNames = ["Trombon",
+                            "Valthorn",
+                            "Klarinett",
+                            "Klockspel",
+                            "Trumpet",
+                            "Saxofon",
+                            "Elbas",
+                            "Cello",
+                            "Slagverk",
+                            "Fiol",
+                            "Tvärflöjt",
+                            "Piano"];
+
+          v = new VideoMixer({url:"./assets/video/starwars2.mp4",                      
+                                rows:3,
+                                columns:4,
+                                parts:12,
+                                title:"Test Video",
+                                partNames:partNames,
+                                //width:1280,  starwars.mp4
+                                //height:720,
+                                //partHeight:179,
+                                width: 1920,
+                                height: 1080,
+                                partHeight: 268,
+                                audioFolder:folder,
+                                audioFiles:files,
+                                //startY:186, starwars.mp4
+                                startY: 276,
+                                audioDelay:-0.2,
+                                //videoRate:0.91875
+                                videoRate:0.955,
+      							frameMargin:4,
+      							duration:58
+                               });
+
+        }
+      
+      function startLow() {
+      		$("#startLow").hide();
+      		$("#startHigh").hide();
+          const folder = "starwars/";
+  		  const files = ["trb.mp3","vhn.mp3", "kla1.mp3", "slg.mp3","trp.mp3","sax.mp3","bas.mp3", "cel.mp3", "tru.mp3", "vln.mp3", "flj.mp3", "pia.mp3"];
+      	  const partNames = ["Trombon",
+                            "Valthorn",
+                            "Klarinett",
+                            "Klockspel",
+                            "Trumpet",
+                            "Saxofon",
+                            "Elbas",
+                            "Cello",
+                            "Slagverk",
+                            "Fiol",
+                            "Tvärflöjt",
+                            "Piano"];
+
+          v = new VideoMixer({url:"./assets/video/starwars.mp4",                      
+                                rows:3,
+                                columns:4,
+                                parts:12,
+                                title:"Test Video",
+                                partNames:partNames,
+                                width:1280,  
+                                height:720,
+                                partHeight:179,
+                                //width: 1920,
+                                //height: 1080,
+                                //partHeight: 268,
+                                audioFolder:folder,
+                                audioFiles:files,
+                                startY:186, 
+                                //startY: 276,
+                                audioDelay:-0.2,
+                                //videoRate:0.91875
+                                videoRate:0.955,
+      							frameMargin:4,
+      							duration:58
+                               });
+
+        }
+		//startLow();
+       
+    </script>
+    
+
+  </body>
+</html>
