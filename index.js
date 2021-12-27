@@ -4,7 +4,7 @@ const webpackMiddleware = require('webpack-dev-middleware');
 
 // Setup
 const app = express();
-const port = process.env['REACT_APP_PORT'];
+const port = process.env['REACT_APP_PORT'] || 3001;
 const config = require('./webpack.config.js');
 const compiler = webpack(config);
 const middleware = webpackMiddleware(compiler, {

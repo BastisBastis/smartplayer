@@ -94,6 +94,7 @@ const VideoPlayer = ({
   
   
   //Render function of all the canvases
+  //Optimize this as much as possible!
   const canvasCollection = ()=>{
     if (!videoRef) {
       console.log("No videoRef when set to isPlaying");
@@ -114,7 +115,7 @@ const VideoPlayer = ({
           } : {
             transform: `translate(${part.hiddenPos.x}px, ${part.hiddenPos.y}px) scale(0.1)`
             }
-          console.log(style)
+          
           return (
             <SmartCanvas
               key={"smartCanvas"+i}

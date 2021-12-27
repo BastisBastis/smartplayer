@@ -22,7 +22,6 @@ const SmartPlayer = ()=> {
   const [visibleCanvases,setVisibleCanvases] = useState([...parts.map(part=>part.index)])
   
   useEffect(()=>{
-    
     setParts(
       [
    {hiddenPos:{x:0,y:0},title:"Trombon",index:0},

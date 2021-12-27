@@ -2,7 +2,7 @@ import React from "react"
 
 import styles from "./SmartPlayer.module.css"
 
-const PartButton = React.forwardRef((props,ref)=> {
+const PartButton =(props,ref)=> {
   return (
     <div 
       ref={ref}
@@ -12,6 +12,6 @@ const PartButton = React.forwardRef((props,ref)=> {
       {props.title}
     </div>
   )
-})
+}
 
 export default PartButton;
