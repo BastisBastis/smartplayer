@@ -2,10 +2,9 @@ import React from "react"
 
 import styles from "./SmartPlayer.module.css"
 
-const PartButton =(props,ref)=> {
+const PartButton =(props)=> {
   return (
     <div 
-      ref={ref}
       onClick={props.onClick}
       className={styles.button+(props.active?" "+styles.activeButton:"")}
     >

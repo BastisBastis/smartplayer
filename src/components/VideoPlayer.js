@@ -40,6 +40,7 @@ const VideoPlayer = ({
   
   
   const videoRef= useRef(null);
+  const canvasCollectionRef=useRef([]);
   
   const [canvasPositions,setCanvasPositions] = useState([])
   
@@ -70,8 +71,6 @@ const VideoPlayer = ({
     
     
     visibleCanvases.forEach((canvas, i)=>{
-      
-      //const canvasX=areaX+(i%canvasColumns)*canvasWidth;
       const canvasX= areaX+(areaWidth-canvasWidth*canvasColumns)/2+(i%canvasColumns)*canvasWidth;
       const canvasY=areaY+Math.floor(i/canvasColumns)*canvasHeight;
       
@@ -102,7 +101,7 @@ const VideoPlayer = ({
     }
     
     return (
-      <>
+      <div>
         {parts.map((part,i) => {
           const col=i%columns;
           const row=Math.floor(i/columns)
@@ -119,6 +118,7 @@ const VideoPlayer = ({
           return (
             <SmartCanvas
               key={"smartCanvas"+i}
+              ref={el=>canvasCollectionRef.current[i]=el}
               time={time}
               style={style}
               videoRef={videoRef}
@@ -131,8 +131,19 @@ const VideoPlayer = ({
             />
           )
         })}
-      </>
+      </div>
     )
+  }
+  
+  const updateCanvases=()=>{
+    
+    if (canvasCollectionRef) {
+      
+      for (const canvas of canvasCollectionRef.current) {
+        canvas.draw()
+      }
+    } else
+      console.log("nop")
   }
   
   //Start video and start canvas draw loop when isPlaying prop is set to true
@@ -140,7 +151,7 @@ const VideoPlayer = ({
     if (videoRef && isPlaying) {
       videoRef.current.play()
       setInterval(()=>{
-        setTime(Date.now());
+        updateCanvases();
       },1000/60)
     }
   },[isPlaying])

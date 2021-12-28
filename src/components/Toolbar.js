@@ -14,6 +14,7 @@ const Toolbar = React.forwardRef((props,ref)=>{
         
         return (
           <PartButton 
+            key={"PartButton"+i}
             onClick={()=>props.callback(i)}
             title={part.title} 
             active={props.visibleCanvases.includes(i)}
