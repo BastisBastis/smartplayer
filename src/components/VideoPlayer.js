@@ -2,6 +2,8 @@ import React, {useState, useEffect, useRef} from "react";
 
 import SmartCanvas from "./SmartCanvas"
 
+let count=0;
+let startTime;
 
 //calculates the amount of rows that give the largest canvases
 const getOptimalRows=(items,ratio,totalHeight)=> {
@@ -136,7 +138,11 @@ const VideoPlayer = ({
   }
   
   const updateCanvases=()=>{
-    
+    count++;
+    if (count%300==0) {
+      alert(1000/((Date.now()-startTime)/300));
+      startTime=Date.now()
+    }
     if (canvasCollectionRef) {
       
       for (const canvas of canvasCollectionRef.current) {
@@ -148,11 +154,13 @@ const VideoPlayer = ({
   
   //Start video and start canvas draw loop when isPlaying prop is set to true
   useEffect(()=>{
+    
     if (videoRef && isPlaying) {
+      startTime=Date.now()
       videoRef.current.play()
       setInterval(()=>{
         updateCanvases();
-      },1000/60)
+      },1000/30)
     }
   },[isPlaying])
  
