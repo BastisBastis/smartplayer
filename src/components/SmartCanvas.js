@@ -2,7 +2,10 @@ import React, {useState, useEffect, useRef} from 'react'
 
 import styles from "./SmartPlayer.module.css"
 
-const SmartCanvas = (props)=> {
+export default  SmartCanvas
+
+
+(props)= {
   
   const canvasRef=useRef()
   
