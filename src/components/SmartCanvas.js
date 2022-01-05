@@ -2,40 +2,43 @@ import React, {useState, useEffect, useRef} from 'react'
 
 import styles from "./SmartPlayer.module.css"
 
-const SmartCanvas = (props)=> {
-  
-  const canvasRef=useRef()
-  
-  
-  
-  useEffect(()=>{
-    if (props.time && props.videoRef && canvasRef) {
-      const ctx = canvasRef.current.getContext("2d");
-      ctx.drawImage(
-        props.videoRef.current,
-        props.sourceX,
-        props.sourceY+props.frameMarginY,
-        props.width,
-        props.height-props.frameMarginY*2,
-        0,
-        0,
-        props.width,
-        props.height
-      );
-     
-     
-    } 
-  },[props.time])
-  
-  return (
-    <canvas
-      ref={canvasRef}
-      className={styles.smartCanvas}
-      style={props.style}
-      width={props.width}
-      height={props.height}
-    />
-  )
-}
 
-export default SmartCanvas;
+export default class SmartCanvas extends React.Component {
+
+
+  constructor (props) {
+    super(props);
+    this.canvasRef = React.createRef()
+  }
+  
+  
+  draw() {
+    
+    const ctx = this.canvasRef.current.getContext('2d', { alpha: false });
+    ctx.drawImage(
+      this.props.videoRef.current,
+      this.props.sourceX,
+      this.props.sourceY+this.props.frameMarginY,
+      Math.floor(this.props.width),
+      this.props.height-this.props.frameMarginY*2,
+      0,
+      0,
+      Math.floor(this.props.width),
+      Math.floor(this.props.height)
+    );  
+    
+  }
+    
+  
+  render() {
+    return (
+      <canvas
+        ref={this.canvasRef}
+        className={styles.smartCanvas}
+        style={this.props.style}
+        width={this.props.width}
+        height={this.props.height}
+      />
+    )
+  }
+}
