@@ -1,8 +1,9 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode:'development',
-  //mode: "production",
+  //mode:'development',
+  mode: "production",
   entry: {
     app: [
       './src/app.js'
@@ -62,16 +63,12 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[name].[ext]",
-              outputPath: "video"
+                name: "[name].[ext]",
+                outputPath: "video"
             }
-          }
-        ]
-      }, 
-      {
-        test: /\mp3|wav|mpe?g|ogg?$/i,
-        use: 'file-loader'
-      }
+        }
+    ]
+}
     ]
   },
   plugins: [],
@@ -79,5 +76,8 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '/'
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({ /* additional options here */ })],
   }
 };

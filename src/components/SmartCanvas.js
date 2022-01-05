@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 
 import styles from "./SmartPlayer.module.css"
 
+
 export default class SmartCanvas extends React.Component {
 
 
@@ -13,17 +14,17 @@ export default class SmartCanvas extends React.Component {
   
   draw() {
     
-    const ctx = this.canvasRef.current.getContext("2d");
+    const ctx = this.canvasRef.current.getContext('2d', { alpha: false });
     ctx.drawImage(
       this.props.videoRef.current,
       this.props.sourceX,
       this.props.sourceY+this.props.frameMarginY,
-      this.props.width,
+      Math.floor(this.props.width),
       this.props.height-this.props.frameMarginY*2,
       0,
       0,
-      this.props.width,
-      this.props.height
+      Math.floor(this.props.width),
+      Math.floor(this.props.height)
     );  
     
   }

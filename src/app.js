@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './app.css';
- import AnimTest from "./components/AnimTest"
- import SmartPlayer from "./components/SmartPlayer"
+import MyErrorBoundry from "./components/ErrorBoundry"
+ import Smart from "./components/Smart"
 
 class App extends React.Component {	
   render() {
     return (
-      <div>
-      <SmartPlayer />
-    </div>
+      <MyErrorBoundry>
+        <Smart />
+      </MyErrorBoundry>
     )
   }
 }
