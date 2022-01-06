@@ -2,7 +2,8 @@
   "version": "0.0.9",
   "scripts": {
     "start": "node dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "dist": "babel src -d dist"
   },
   "name":"split-video-player",
   "dependencies": {
