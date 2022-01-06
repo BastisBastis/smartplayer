@@ -1,7 +1,7 @@
 {
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
-    "start": "node index.js",
+    "start": "node dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "name":"split-video-player",
