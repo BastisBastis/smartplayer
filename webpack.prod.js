@@ -1,5 +1,4 @@
 const path = require('path');
-//const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   //mode:'development',
@@ -81,7 +80,4 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/'
   },
-  /* optimization: {
-    minimizer: [new TerserPlugin({ /* additional options here * / })],
-  }*/
 };
