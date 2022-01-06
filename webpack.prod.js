@@ -6,7 +6,7 @@ module.exports = {
   mode: "production",
   entry: {
     app: [
-      './src/app.js'
+      './src/components/Smart.js'
     ]
   },
   module: {
@@ -68,7 +68,11 @@ module.exports = {
             }
         }
     ]
-}
+}, 
+      {
+        test: /\mp3|wav|mpe?g|ogg?$/i,
+        use: 'file-loader'
+      }
     ]
   },
   plugins: [],
