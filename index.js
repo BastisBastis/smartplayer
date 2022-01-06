@@ -1,3 +1,3 @@
-const smart=require("./src/components/Smart")
+const smart=require("./dist/app.bundle")
 
 module.exports=smart;
