@@ -5,11 +5,11 @@
     "build": "webpack --config webpack.prod.js",
     "dist": "babel src -d dist"
   },
-  "name":"split-video-player",
+  "name": "split-video-player",
   "dependencies": {
-    
+    "@react-hook/window-size": "^3.0.7"
   },
-  "peerDependencies":{
+  "peerDependencies": {
     "nan": "^2.15.0",
     "react-howler": "^5.2.0",
     "react": "16.x.x",

@@ -6,7 +6,7 @@ import LoadingBar from "./LoadingBar"
 import RestartPopup from "./RestartPopup"
 
 import useSynchronizer from "./useSynchronizer"
-
+import {useWindowSize} from '@react-hook/window-size'
 
 
 import styles from "./SmartPlayer.module.css"
@@ -32,9 +32,11 @@ const SmartPlayer = (props)=> {
   
   const [videoBounds,setVideoBounds] = useState({x:0,y:0,width:0,height:0})
   const [hideToolbar, setHideToolbar] = useState(false);
+  const [windowSize, setWindowSize] = useState();
+  
  
   useSynchronizer(playState,videoRef,audioRef,setDebugLabel);
-  
+  const [windowWidth, windowHeight] = useWindowSize()
   
   
   const [visibleCanvases,setVisibleCanvases] = useState([...parts.map(part=>part.index)])
@@ -93,12 +95,14 @@ const SmartPlayer = (props)=> {
     setVideoBounds({
       x:0,
       y:y,
-      height:window.innerHeight-y,
-      width:window.innerWidth
+      //height:window.innerHeight-y,
+      //width:window.innerWidth
+      height:windowHeight-y,
+      width:windowWidth
     })
     
     //setHiddenPos();
-  },[ hideToolbar,toolbarRef])
+  },[ hideToolbar,toolbarRef, windowWidth, windowHeight])
   
   useEffect(()=>{
     updateSize()
@@ -140,6 +144,7 @@ const SmartPlayer = (props)=> {
       
     }
   },[loadedMedia])
+  
   
   
   return (
