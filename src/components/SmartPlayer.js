@@ -148,7 +148,7 @@ const SmartPlayer = (props)=> {
       <AudioMixer
         ref={audioRef}
         audioDelay={props.videoData.audioDelay}
-        videoRate={0.955}
+        videoRate={props.videoData.videoRate}
         videoRef={videoRef}
         parts={props.videoData.audio}
         setDebugLabel={setDebugLabel}
