@@ -13,7 +13,7 @@
     "react-howler": "^5.2.0",
     "react": "16.x.x",
     "react-dom": "16.x.x",
-    "react-icons": "^4.3.1",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
