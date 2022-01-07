@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 
+
+
 import SmartCanvas from "./SmartCanvas"
 
 let count=0;
@@ -50,6 +52,9 @@ const VideoPlayer = ({
   const canvasCollectionRef=useRef([]);
   const bufferRef = useRef(null)
   
+
+  
+
   
   const [canvasPositions,setCanvasPositions] = useState([])
   
@@ -97,7 +102,7 @@ const VideoPlayer = ({
     })
     setCanvasPositions(positions)
     
-  },[visibleCanvases,videoBounds,parts])
+  },[visibleCanvases,videoBounds,parts, windowSize.width, windowSize.height])
   
   useEffect(()=>{
     
@@ -116,7 +121,6 @@ const VideoPlayer = ({
         {parts.map((part,i) => {
           const col=i%columns;
           const row=Math.floor(i/columns)
-          const canvasW=window.innerWidth/columns;
           const position = canvasPositions.find((canvas)=>Number(canvas.canvas)===i);
           
           const style = position?{
@@ -177,7 +181,8 @@ const VideoPlayer = ({
       update();
     }
   },[isPlaying])
- 
+  
+  
   
   return (
     <>
