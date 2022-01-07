@@ -1,5 +1,5 @@
 {
-  "version": "0.0.13",
+  "version": "0.0.14",
   "scripts": {
     "start": "node dev.js",
     "build": "webpack --config webpack.prod.js",
