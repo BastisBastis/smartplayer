@@ -5,7 +5,7 @@ module.exports = {
   mode: "production",
   entry: {
     app: [
-      './src/components/Smart.js'
+      './src/components/SmartPlayer.js'
     ]
   },
   module: {
