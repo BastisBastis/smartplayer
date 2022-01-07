@@ -7,7 +7,7 @@ import RestartPopup from "./RestartPopup"
 
 import useSynchronizer from "./useSynchronizer"
 
-import StarwarsPaths from "../assets/starwarsPaths"
+
 
 import styles from "./SmartPlayer.module.css"
 
