@@ -7,14 +7,14 @@
   },
   "name":"split-video-player",
   "dependencies": {
+    
+  },
+  "peerDependencies":{
     "nan": "^2.15.0",
     "react-howler": "^5.2.0",
     "react": "16.x.x",
     "react-dom": "16.x.x",
     "react-icons": "^4.3.1"
-  },
-  "peerDependencies":{
-    
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
