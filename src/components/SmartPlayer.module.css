@@ -38,7 +38,7 @@
 .smartCanvas {
   position:absolute;
   z-index:400;
-  border: solid 1px black;
+  /*border: solid 1px black;*/
   /*transition:top 1s,left 1s, width 1s;*/
   transition: 1s;
   top:0;
