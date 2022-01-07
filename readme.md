@@ -1,23 +1,3 @@
+My first attempt on a published NPM-package. Lots of mistakes have been made, many of which I am aware and lots more that I don't have a clue about.
 
-
-const videoData = {
-  videoSrc:path,
-  videoRate:0.955,
-  audioDelay:0.2,
-  duration:58.2,
-  audio:[
-    {title:"Trombon",src:trb},
-    {title:"Valthorn",src:val},
-    {title:"Klarinett",src:kla},
-    {title:"Klockspel",src:klo},
-    {title:"Trumpet",src:trp},
-    {title:"Saxofon",src:sax},
-    {title:"Elbas",src:bas},
-    {title:"Cello",src:cel},
-    {title:"Slagverk",src:sla},
-    {title:"Fiol",src:vio},
-    {title:"Tvärflöjt",src:flj},
-    {title:"Piano",src:pia}
-  ]
-}
-
+A more thorough readme will come, although nobody but me will likely use this.
