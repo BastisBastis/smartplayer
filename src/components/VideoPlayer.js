@@ -102,7 +102,7 @@ const VideoPlayer = ({
     })
     setCanvasPositions(positions)
     
-  },[visibleCanvases,videoBounds,parts, windowSize.width, windowSize.height])
+  },[visibleCanvases,videoBounds,parts])
   
   useEffect(()=>{
     

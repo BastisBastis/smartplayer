@@ -32,11 +32,10 @@ const SmartPlayer = (props)=> {
   
   const [videoBounds,setVideoBounds] = useState({x:0,y:0,width:0,height:0})
   const [hideToolbar, setHideToolbar] = useState(false);
-  const [windowSize, setWindowSize] = useState();
   
  
   useSynchronizer(playState,videoRef,audioRef,setDebugLabel);
-  const [windowWidth, windowHeight] = useWindowSize()
+  const [windowWidth, windowHeight] = useWindowSize({wait:200})
   
   
   const [visibleCanvases,setVisibleCanvases] = useState([...parts.map(part=>part.index)])
@@ -100,13 +99,12 @@ const SmartPlayer = (props)=> {
       height:windowHeight-y,
       width:windowWidth
     })
-    
     //setHiddenPos();
   },[ hideToolbar,toolbarRef, windowWidth, windowHeight])
   
   useEffect(()=>{
     updateSize()
-  },[hideToolbar,toolbarRef,playState])
+  },[hideToolbar,toolbarRef,playState, windowWidth, windowHeight])
   
   useEffect(()=>{
     
