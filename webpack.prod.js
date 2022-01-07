@@ -81,4 +81,8 @@ module.exports = {
     publicPath: '/',
     libraryTarget: 'commonjs2'
   },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom'
+  },
 };
