@@ -44,7 +44,8 @@ const VideoPlayer = ({
   hidden,
   onEnded,
   duration,
-  videoBounds
+  videoBounds,
+  focusPart
 }) =>{
   
   
@@ -146,6 +147,7 @@ const VideoPlayer = ({
               sourceX={Math.floor(partWidth*col)}
               sourceY={Math.floor(startY+partHeight*row)}
               isPlaying={isPlaying}
+              onClick= {()=>focusPart(i)}
             />
           )
         })}
