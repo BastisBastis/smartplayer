@@ -38,6 +38,7 @@ export default class SmartCanvas extends React.Component {
         style={this.props.style}
         width={this.props.width}
         height={this.props.height}
+        onClick = {props.onClick}
       />
     )
   }
