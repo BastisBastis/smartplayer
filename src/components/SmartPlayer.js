@@ -143,6 +143,10 @@ const SmartPlayer = (props)=> {
     }
   },[loadedMedia])
   
+
+  const focusPart = index => {
+    setVisibleCanvases([index]);
+  }
   
   
   return (
@@ -196,6 +200,7 @@ const SmartPlayer = (props)=> {
           setPlayState(STATE_FINISHED);
         }}
         isPlaying={playState===STATE_PLAYING}
+        focusPart={focusPart}
       />
       {playState===STATE_READY && 
       <div 
@@ -248,3 +253,4 @@ const SmartPlayer = (props)=> {
 }
 
 export default SmartPlayer;
+
